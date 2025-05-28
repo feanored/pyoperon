@@ -14,5 +14,5 @@ setup(
     author='Bogdan Burlacu',
     packages=['pyoperon'],
     python_requires=">=3.8",
-    cmake_args=[f'--preset {build_preset}' if build_preset != '' else '']
+    cmake_args=["-G", "Visual Studio 17 2022"]
 )
