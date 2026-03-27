@@ -22,6 +22,34 @@ Most of the time `pip install pyoperon` should be enough.
 
 ## Building from source
 
+### Windows (fixed)
+
+1. Clone the repository
+
+```cmd
+git clone https://github.com/feanored/pyoperon.git
+cd pyoperon
+```
+
+2. Configure environment variables
+
+```cmd
+set VCPKG_ROOT=<your-vcpkg-folder>
+set CMAKE_ARGS=-DCMAKE_TOOLCHAIN_FILE=%VCPKG_ROOT%/scripts/buildsystems/vcpkg.cmake -DVCPKG_OVERLAY_PORTS=./ports -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded
+```
+
+3. Install pre-requisites in Python
+
+```cmd
+pip install scikit-build scikit-learn joblib cmake
+```
+
+4. Install the package (I've fixed the CMakeLists.txt, and now works). Note that you MUST have Visual Studio (2022 tested) and CMake pre-installed.
+
+```cmd
+pip install .
+```
+
 ### Conda/Mamba
 
 1. Clone the repository
